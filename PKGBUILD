@@ -12,6 +12,7 @@ optdepends=(
   'xclip: copy the chapter on X11'
 )
 makedepends=('go' 'git')
+options=('!debug')
 source=("git+$url.git#tag=v$pkgver")
 sha256sums=('SKIP')
 

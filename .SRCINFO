@@ -1,0 +1,18 @@
+pkgbase = kjv-tui
+	pkgdesc = King James Bible TUI: book index on the left, full chapter on the right
+	pkgver = 0.1.0
+	pkgrel = 1
+	url = https://github.com/Caleb-parrot/kjv
+	arch = x86_64
+	license = Unlicense
+	makedepends = go
+	makedepends = git
+	depends = glibc
+	depends = xdg-terminal-exec
+	optdepends = wl-clipboard: copy the chapter with y
+	optdepends = xclip: copy the chapter on X11
+	options = !debug
+	source = git+https://github.com/Caleb-parrot/kjv.git#tag=v0.1.0
+	sha256sums = SKIP
+
+pkgname = kjv-tui
