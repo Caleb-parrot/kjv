@@ -1,31 +1,36 @@
-# kjv-fzf
+# kjv-tui
 
 King James Bible reader for the terminal. Index on the left, full chapter on the right.
 
-![kjv-fzf two-pane reader](screenshot.png)
+This is **not** [kjv-fzf](https://aur.archlinux.org/packages/kjv-fzf-git), the old fzf verse finder.
 
-Built for [Omarchy](https://omarchy.org/). It is a TUI app, not an Omarchy shell plugin, so it is not listed on the plugins marketplace.
+![kjv-tui two-pane reader](screenshot.png)
+
+Built for [Omarchy](https://omarchy.org/). It is a TUI app, not an Omarchy shell plugin.
 
 The embedded text is the public-domain KJV (with Apocrypha) from [LukeSmithxyz/kjv](https://github.com/LukeSmithxyz/kjv).
 
-## Install on Omarchy
+## Install on Arch / Omarchy
 
-Needs [Go](https://go.dev/). On Omarchy:
-
-```bash
-omarchy install dev-env go
-```
-
-Then build and add it to the app launcher:
+From this repo:
 
 ```bash
 git clone https://github.com/Caleb-parrot/kjv.git
 cd kjv
-go build -o ~/.local/bin/kjv-fzf .
-omarchy tui install KJV ~/.local/bin/kjv-fzf tile accessories-dictionary
+makepkg -si
 ```
 
-Open it from Super+Space as **KJV**, or run `kjv-fzf`.
+That installs `/usr/bin/kjv-tui` and a Super+Space launcher named **KJV**.
+
+If you already have Go and do not want a package:
+
+```bash
+omarchy install dev-env go
+git clone https://github.com/Caleb-parrot/kjv.git
+cd kjv
+go build -o ~/.local/bin/kjv-tui .
+omarchy tui install KJV ~/.local/bin/kjv-tui tile accessories-dictionary
+```
 
 Optional Super-menu row — add this to `~/.config/omarchy/extensions/omarchy-menu.jsonc`:
 
@@ -34,7 +39,7 @@ Optional Super-menu row — add this to `~/.config/omarchy/extensions/omarchy-me
   "icon": "",
   "label": "KJV",
   "description": "King James Bible",
-  "action": "omarchy-launch-or-focus-tui --app-id=TUI.tile ~/.local/bin/kjv-fzf"
+  "action": "omarchy-launch-or-focus-tui --app-id=TUI.tile kjv-tui"
 }
 ```
 
@@ -53,10 +58,10 @@ Optional Super-menu row — add this to `~/.config/omarchy/extensions/omarchy-me
 ## CLI
 
 ```bash
-kjv-fzf              # TUI
-kjv-fzf -l           # list books
-kjv-fzf John 3       # print a chapter
-kjv-fzf Phi 1        # abbreviations work
+kjv-tui              # TUI
+kjv-tui -l           # list books
+kjv-tui John 3       # print a chapter
+kjv-tui Phi 1        # abbreviations work
 ```
 
 ## License

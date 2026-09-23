@@ -804,15 +804,19 @@ func statePath() string {
 		home, _ := os.UserHomeDir()
 		dir = filepath.Join(home, ".local", "state")
 	}
-	return filepath.Join(dir, "kjv-fzf", "last")
+	return filepath.Join(dir, "kjv-tui", "last")
 }
 
 func loadLast() string {
-	b, err := os.ReadFile(statePath())
-	if err != nil {
-		return ""
+	if b, err := os.ReadFile(statePath()); err == nil {
+		return strings.TrimSpace(string(b))
 	}
-	return strings.TrimSpace(string(b))
+	// Previous binary name, before the Arch package.
+	old := strings.Replace(statePath(), "/kjv-tui/", "/kjv-fzf/", 1)
+	if b, err := os.ReadFile(old); err == nil {
+		return strings.TrimSpace(string(b))
+	}
+	return ""
 }
 
 func saveLast(book string, chapter int) {

@@ -49,11 +49,11 @@ func main() {
 }
 
 func usage() string {
-	return `kjv-fzf — King James Bible, two-pane reader
+	return `kjv-tui — King James Bible, two-pane reader
 
-  kjv-fzf                 open the TUI (index left, chapter right)
-  kjv-fzf -l              list books
-  kjv-fzf John 3          print a chapter
+  kjv-tui                 open the TUI (index left, chapter right)
+  kjv-tui -l              list books
+  kjv-tui John 3          print a chapter
 
 TUI keys:
   j/k enter    move / open book

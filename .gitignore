@@ -1,2 +1,6 @@
 /kjv-fzf
+/kjv-tui
 /kjv
+/*.pkg.tar.zst
+/src
+/pkg

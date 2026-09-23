@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=KJV
+Comment=King James Bible — index and chapter reader
+Exec=xdg-terminal-exec --app-id=TUI.tile -e kjv-tui
+Terminal=false
+Type=Application
+Icon=accessories-dictionary
+StartupNotify=true
+Categories=Education;Literature;ConsoleOnly;
+Keywords=bible;kjv;scripture;tui;
