@@ -6,9 +6,28 @@ This is **not** [kjv-fzf](https://aur.archlinux.org/packages/kjv-fzf-git), the o
 
 ![kjv-tui two-pane reader](screenshot.png)
 
-Built for [Omarchy](https://omarchy.org/). It is a TUI app, not an Omarchy shell plugin.
+Works on [Omarchy](https://omarchy.org/) (Arch) and [GhostBSD](https://ghostbsd.org/) (FreeBSD). It is a TUI app, not an Omarchy shell plugin.
 
 The embedded text is the public-domain KJV (with Apocrypha) from [LukeSmithxyz/kjv](https://github.com/LukeSmithxyz/kjv).
+
+## Install on GhostBSD
+
+```bash
+sudo pkg install go git xclip
+git clone https://github.com/Caleb-parrot/kjv.git
+cd kjv
+sudo sh freebsd-port/install.sh
+```
+
+That installs `/usr/local/bin/kjv-tui` and a menu entry named **KJV**. The first `go build` may download a Go toolchain.
+
+To build it as a FreeBSD port instead, copy `freebsd-port/` to `/usr/ports/misc/kjv-tui` (after `pkg install ports` and `pkg install -g 'GhostBSD*-dev'`), then:
+
+```bash
+cd /usr/ports/misc/kjv-tui
+sudo make makesum
+sudo make install clean
+```
 
 ## Install on Arch / Omarchy
 

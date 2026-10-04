@@ -42,6 +42,6 @@ check() {
 package() {
   cd kjv
   install -Dm755 kjv-tui "$pkgdir/usr/bin/kjv-tui"
-  install -Dm644 kjv-tui.desktop "$pkgdir/usr/share/applications/kjv-tui.desktop"
+  install -Dm644 kjv-tui.omarchy.desktop "$pkgdir/usr/share/applications/kjv-tui.desktop"
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

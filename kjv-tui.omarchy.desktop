@@ -2,8 +2,8 @@
 Version=1.0
 Name=KJV
 Comment=King James Bible — index and chapter reader
-Exec=kjv-tui
-Terminal=true
+Exec=xdg-terminal-exec --app-id=TUI.tile -e kjv-tui
+Terminal=false
 Type=Application
 Icon=accessories-dictionary
 StartupNotify=true
