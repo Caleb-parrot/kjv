@@ -21,7 +21,25 @@ sudo sh freebsd-port/install.sh
 
 That installs `/usr/local/bin/kjv-tui` and a menu entry named **KJV**. The first `go build` may download a Go toolchain.
 
-To build it as a FreeBSD port instead, copy `freebsd-port/` to `/usr/ports/misc/kjv-tui` (after `pkg install ports` and `pkg install -g 'GhostBSD*-dev'`), then:
+If the build fails with `stddef.h file not found`, GhostBSD is missing C headers. This app does not need them. From the clone:
+
+```bash
+git pull
+sudo sh freebsd-port/install.sh
+```
+
+Or build by hand:
+
+```bash
+CGO_ENABLED=0 go build -o kjv-tui .
+sudo install -m 755 kjv-tui /usr/local/bin/kjv-tui
+sudo install -d /usr/local/share/applications
+sudo install -m 644 kjv-tui.desktop /usr/local/share/applications/kjv-tui.desktop
+```
+
+To compile C code or FreeBSD ports on GhostBSD, install the SDK instead: `sudo pkg install -g 'GhostBSD*-dev'`.
+
+To build it as a FreeBSD port, copy `freebsd-port/` to `/usr/ports/misc/kjv-tui` (after `pkg install ports` and `pkg install -g 'GhostBSD*-dev'`), then:
 
 ```bash
 cd /usr/ports/misc/kjv-tui

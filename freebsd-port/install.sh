@@ -11,8 +11,10 @@ if ! command -v go >/dev/null 2>&1; then
 	exit 1
 fi
 
+# GhostBSD does not ship C headers unless you install GhostBSD*-dev.
+# This TUI is pure Go, so skip cgo and avoid stddef.h.
 echo "Building kjv-tui..."
-go build -o kjv-tui .
+CGO_ENABLED=0 go build -o kjv-tui .
 
 PREFIX="${PREFIX:-/usr/local}"
 echo "Installing to ${PREFIX} (needs root)..."

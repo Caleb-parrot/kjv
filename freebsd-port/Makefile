@@ -13,6 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USES=		desktop-file-utils go:modules
 GO_MODULE=	github.com/caleb-parrot/kjv
 GO_TARGET=	.:kjv-tui
+CGO_ENABLED=	0
 
 PLIST_FILES=	bin/kjv-tui \
 		share/applications/kjv-tui.desktop
