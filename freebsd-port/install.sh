@@ -16,6 +16,7 @@ fi
 echo "Building kjv-tui..."
 CGO_ENABLED=0 go build -o kjv-tui .
 
+DESTDIR="${DESTDIR:-}"
 PREFIX="${PREFIX:-/usr/local}"
 echo "Installing to ${PREFIX} (needs root)..."
 install -d "${DESTDIR}${PREFIX}/bin"
